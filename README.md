@@ -1,5 +1,10 @@
 # Interview Problems
 [](https://www.ictdemy.com/kotlin/oop/reference-data-types-in-kotlin)
+
+- ### Arrays
+   - [Return the median of the two sorted arrays](https://github.com/goodluck3301/interview-problems#given-two-sorted-arrays-nums1-and-nums2-of-size-m-and-n-respectively-return-the-median-of-the-two-sorted-arrays)
+- ### Strings
+   - [Longest Palindromic Substring](https://github.com/goodluck3301/interview-problems/edit/main/README.md#longest-palindromic-substring)  
 ___
 - ## Arrays
 ___

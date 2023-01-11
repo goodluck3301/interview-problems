@@ -4,6 +4,7 @@
 - ### Arrays
    - [Maximum Count of Positive Integer and Negative Integer](https://github.com/goodluck3301/interview-problems/edit/main/README.md#maximum-count-of-positive-integer-and-negative-integer) 
    - [Return the median of the two sorted arrays](https://github.com/goodluck3301/interview-problems#given-two-sorted-arrays-nums1-and-nums2-of-size-m-and-n-respectively-return-the-median-of-the-two-sorted-arrays)
+   - [Binary Search] 
 - ### Strings
    - [Longest Palindromic Substring](https://github.com/goodluck3301/interview-problems/edit/main/README.md#longest-palindromic-substring)  
 ___
@@ -144,6 +145,59 @@ class Solution {
             }
         }
         return 0.0;
+    }
+}
+```
+### Binary Search
+
+Given an array of integers ```nums``` which is sorted in ascending order, and an integer ```target```, write a function to search ```target``` in nums. If target exists, then return its index. Otherwise, return ```-1```.</br>
+
+You must write an algorithm with ```O(log n)``` runtime complexity.
+
+![Binary Search](https://blog.penjee.com/wp-content/uploads/2015/04/binary-and-linear-search-animations.gif)
+
+```
+Example 1:
+
+   Input: nums = [-1,0,3,5,9,12], target = 9
+   Output: 4
+   Explanation: 9 exists in nums and its index is 4
+
+Example 2:
+
+      Input: nums = [-1,0,3,5,9,12], target = 2
+      Output: -1
+      Explanation: 2 does not exist in nums so return -1
+ 
+
+Constraints:
+
+   1 <= nums.length <= 104
+   -104 < nums[i], target < 104
+   All the integers in nums are unique.
+   nums is sorted in ascending order.
+```
+Kotlin Code
+
+```kotlin
+class Solution {
+    
+    fun search(nums: IntArray, target: Int): Int {
+        
+        var low = 0
+        var high = nums.size-1
+        var mid:Int
+        
+        while(low <= high) {
+            mid = low + ((high - low) / 2)
+            when {
+                target > nums[mid]   -> low = mid+1    
+                target == nums[mid] -> return mid 
+                target < nums[mid]  -> high = mid-1   
+            }
+        }
+        
+        return -1
     }
 }
 ```

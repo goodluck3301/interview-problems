@@ -2,11 +2,69 @@
 [](https://www.ictdemy.com/kotlin/oop/reference-data-types-in-kotlin)
 
 - ### Arrays
+   - [Maximum Count of Positive Integer and Negative Integer](https://github.com/goodluck3301/interview-problems/edit/main/README.md#maximum-count-of-positive-integer-and-negative-integer) 
    - [Return the median of the two sorted arrays](https://github.com/goodluck3301/interview-problems#given-two-sorted-arrays-nums1-and-nums2-of-size-m-and-n-respectively-return-the-median-of-the-two-sorted-arrays)
 - ### Strings
    - [Longest Palindromic Substring](https://github.com/goodluck3301/interview-problems/edit/main/README.md#longest-palindromic-substring)  
 ___
 - ## Arrays
+___
+
+### Maximum Count of Positive Integer and Negative Integer
+
+Given an array nums sorted in non-decreasing order, return the maximum between the number of positive integers and the number of negative integers.
+
+- In other words, if the number of positive integers in ```nums``` is ```pos``` and the number of negative integers is ```neg```, then return the maximum of ```pos``` and ```neg```.
+<b>Note</b> that ```0``` is neither positive nor negative.
+
+```
+   Example 1:
+
+      Input: nums = [-2,-1,-1,1,2,3]
+      Output: 3
+      Explanation: There are 3 positive integers and 3 negative integers. The maximum count among them is 3.
+   
+   Example 2:
+
+      Input: nums = [-3,-2,-1,0,0,1,2]
+      Output: 3
+      Explanation: There are 2 positive integers and 3 negative integers. The maximum count among them is 3.
+   
+   Example 3:
+
+      Input: nums = [5,20,66,1314]
+      Output: 4
+      Explanation: There are 4 positive integers and 0 negative integers. The maximum count among them is 4.
+ 
+
+Constraints:
+
+   1 <= nums.length <= 2000
+   -2000 <= nums[i] <= 2000
+   nums is sorted in a non-decreasing order.
+```
+
+Kotlin Code
+
+```kotlin
+class Solution {
+
+    fun maximumCount(nums: IntArray): Int {
+        
+        var negativCount = 0
+        var positiveCount = 0
+
+        nums.forEach {
+            if(it > 0)
+                positiveCount++
+            else if (it < 0)
+                    negativCount++
+        }
+
+        return if(negativCount >= positiveCount) negativCount else positiveCount
+    }
+}
+```
 ___
 ### Given two sorted arrays ```nums1``` and ```nums2``` of size ```m``` and ```n``` respectively, return the median of the two sorted arrays.
 

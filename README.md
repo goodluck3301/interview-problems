@@ -4,7 +4,7 @@
 - ### Arrays
    - [Maximum Count of Positive Integer and Negative Integer](https://github.com/goodluck3301/interview-problems/edit/main/README.md#maximum-count-of-positive-integer-and-negative-integer) 
    - [Return the median of the two sorted arrays](https://github.com/goodluck3301/interview-problems#given-two-sorted-arrays-nums1-and-nums2-of-size-m-and-n-respectively-return-the-median-of-the-two-sorted-arrays)
-   - [Binary Search] 
+   - [Binary Search](https://github.com/goodluck3301/interview-problems/edit/main/README.md#binary-search) 
 - ### Strings
    - [Longest Palindromic Substring](https://github.com/goodluck3301/interview-problems/edit/main/README.md#longest-palindromic-substring)  
 ___

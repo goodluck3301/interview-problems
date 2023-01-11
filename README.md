@@ -30,6 +30,7 @@ Constraints:
     1 <= m + n <= 2000
     -106 <= nums1[i], nums2[i] <= 106
 ```
+Java Code 
 ```java
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -84,3 +85,64 @@ class Solution {
 }
 ```
 ___
+- ## Strings
+___
+### Longest Palindromic Substring
+ 
+Given a string s, return the longest 
+palindromic substring in ```s```.
+
+<i>Palindromic - A string is palindromic if it reads the same forward and backward.</i>,/br>
+<i>Substring - A substring is a contiguous non-empty sequence of characters within a string.</i>
+
+
+```
+Example 1:
+
+  Input: s = "babad"
+  Output: "bab"
+  Explanation: "aba" is also a valid answer.
+
+Example 2:
+
+  Input: s = "cbbd"
+  Output: "bb"
+  
+  
+Constraints:
+
+  1 <= s.length <= 1000
+  s consist of only digits and English letters.
+```
+Kotlin code
+```kotlin
+class Solution {
+    fun longestPalindrome(s: String): String {
+        return if (s.length <= 1) s
+        else longestPalindromeDp(s, 0, s.length - 1, Array(s.length) {
+                Array<String?>(s.length) {
+                    null
+                }
+            })
+    }
+    
+    private fun longestPalindromeDp(s: String, i: Int, j: Int, map: Array<Array<String?>>): String {
+        return map[i][j] ?: run {
+            map[i][j] = when {
+                i > j -> ""
+                i == j -> s[i].toString()
+                else -> {
+                    if ((s[i] == s[j]) && longestPalindromeDp(s, i + 1, j - 1, map).length == j - 1 - i) {
+                        s.substring(i, j + 1)
+                    } else {
+                        val s1 = longestPalindromeDp(s, i + 1, j, map)
+                        val s2 = longestPalindromeDp(s, i, j - 1, map)
+                        if (s1.length > s2.length) s1 else s2
+                    }
+                }
+            }
+            return map[i][j]!!
+        }
+    }
+}
+```

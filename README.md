@@ -51,16 +51,10 @@ Kotlin Code
 class Solution {
 
     fun maximumCount(nums: IntArray): Int {
-        
-        var negativCount = 0
-        var positiveCount = 0
+    
+        var (negativCount, positiveCount) = 0 to 0
 
-        nums.forEach {
-            if(it > 0)
-                positiveCount++
-            else if (it < 0)
-                    negativCount++
-        }
+        nums.forEach { if(it > 0) positiveCount++ else if (it < 0) negativCount++ }
 
         return if(negativCount >= positiveCount) negativCount else positiveCount
     }
